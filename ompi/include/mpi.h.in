@@ -1800,6 +1800,8 @@ OMPI_DECLSPEC  int MPI_Iscatterv(const void *sendbuf, const int sendcounts[], co
 OMPI_DECLSPEC  int MPI_Send_init(const void *buf, int count, MPI_Datatype datatype,
                                  int dest, int tag, MPI_Comm comm,
                                  MPI_Request *request);
+OMPI_DECLSPEC  int MPI_USend(const void *buf, int count, MPI_Datatype datatype, int dest,
+                            int tag, MPI_Comm comm);
 OMPI_DECLSPEC  int MPI_Send(const void *buf, int count, MPI_Datatype datatype, int dest,
                             int tag, MPI_Comm comm);
 OMPI_DECLSPEC  int MPI_Sendrecv(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
@@ -2462,6 +2464,8 @@ OMPI_DECLSPEC  int PMPI_Send_init(const void *buf, int count, MPI_Datatype datat
                                   int dest, int tag, MPI_Comm comm,
                                   MPI_Request *request);
 OMPI_DECLSPEC  int PMPI_Send(const void *buf, int count, MPI_Datatype datatype, int dest,
+                             int tag, MPI_Comm comm);
+OMPI_DECLSPEC  int PMPI_USend(const void *buf, int count, MPI_Datatype datatype, int dest,
                              int tag, MPI_Comm comm);
 OMPI_DECLSPEC  int PMPI_Sendrecv(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
                                  int dest, int sendtag, void *recvbuf, int recvcount,

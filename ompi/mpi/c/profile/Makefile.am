@@ -311,6 +311,7 @@ nodist_libmpi_c_pmpi_la_SOURCES = \
         pscatterv.c \
         piscatterv.c \
         psend.c \
+        pusend.c \
         psend_init.c \
         psendrecv.c \
         psendrecv_replace.c \

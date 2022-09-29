@@ -330,6 +330,7 @@ libmpi_c_mpi_la_SOURCES = \
         iscatter.c \
         scatterv.c \
         iscatterv.c \
+        usend.c \
         send.c \
         send_init.c \
         sendrecv.c \
