@@ -83,6 +83,7 @@ libmpi_c_mpi_la_SOURCES = \
         attr_put.c \
         barrier.c \
         ibarrier.c \
+        ubcast.c \
         bcast.c \
         ibcast.c \
         bsend.c \

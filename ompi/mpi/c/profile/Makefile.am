@@ -64,6 +64,7 @@ nodist_libmpi_c_pmpi_la_SOURCES = \
         pbarrier.c \
         pibarrier.c \
         pbcast.c \
+        pubcast.c \
         pibcast.c \
         pbsend.c \
         pbsend_init.c \
