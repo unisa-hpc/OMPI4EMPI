@@ -86,6 +86,7 @@ libmpi_c_mpi_la_SOURCES = \
         ibarrier.c \
         ubcast.c \
         bcast.c \
+        iubcast.c \
         ibcast.c \
         bsend.c \
         bsend_init.c \
@@ -270,6 +271,7 @@ libmpi_c_mpi_la_SOURCES = \
         intercomm_create.c \
         intercomm_merge.c \
         iprobe.c \
+        iurecv.c \
         irecv.c \
         irsend.c \
         is_thread_main.c \

@@ -67,6 +67,7 @@ nodist_libmpi_c_pmpi_la_SOURCES = \
         pbcast.c \
         pubcast.c \
         pibcast.c \
+        piubcast.c \
         pbsend.c \
         pbsend_init.c \
         pbuffer_attach.c \
@@ -251,6 +252,7 @@ nodist_libmpi_c_pmpi_la_SOURCES = \
         pintercomm_merge.c \
         piprobe.c \
         pirecv.c \
+        piurecv.c \
         pirsend.c \
         pis_thread_main.c \
         pisend.c \

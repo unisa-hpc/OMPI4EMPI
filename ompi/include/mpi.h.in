@@ -1372,6 +1372,9 @@ OMPI_DECLSPEC  int MPI_Bsend(const void *buf, int count, MPI_Datatype datatype,
 OMPI_DECLSPEC  int MPI_Ibcast(void *buffer, int count, MPI_Datatype datatype,
 				                              int root, MPI_Comm comm,
 											  MPI_Request *request);
+OMPI_DECLSPEC  int MPI_IUbcast(void *buffer, int count, MPI_Datatype datatype,
+				                              int root, MPI_Comm comm,
+											  MPI_Request *request);
 OMPI_DECLSPEC  int MPI_Bsend_init(const void *buf, int count, MPI_Datatype datatype,
                                   int dest, int tag, MPI_Comm comm, MPI_Request *request);
 OMPI_DECLSPEC  int MPI_Buffer_attach(void *buffer, int size);
@@ -1670,6 +1673,8 @@ OMPI_DECLSPEC  int MPI_Iprobe(int source, int tag, MPI_Comm comm, int *flag,
                               MPI_Status *status);
 OMPI_DECLSPEC  int MPI_Irecv(void *buf, int count, MPI_Datatype datatype, int source,
                              int tag, MPI_Comm comm, MPI_Request *request);
+OMPI_DECLSPEC  int MPI_IUrecv(void *buf, int count, MPI_Datatype datatype, int source,
+                             int tag, MPI_Comm comm, MPI_Request *request);                             
 OMPI_DECLSPEC  int MPI_Irsend(const void *buf, int count, MPI_Datatype datatype, int dest,
                               int tag, MPI_Comm comm, MPI_Request *request);
 OMPI_DECLSPEC  int MPI_Isend(const void *buf, int count, MPI_Datatype datatype, int dest,
@@ -2060,6 +2065,9 @@ OMPI_DECLSPEC  int PMPI_UBcast(void *buffer, int count, MPI_Datatype datatype,
 OMPI_DECLSPEC  int PMPI_Ibcast(void *buffer, int count, MPI_Datatype datatype,
 				                              int root, MPI_Comm comm,
 											  MPI_Request *request);
+OMPI_DECLSPEC  int PMPI_IUbcast(void *buffer, int count, MPI_Datatype datatype,
+				                              int root, MPI_Comm comm,
+											  MPI_Request *request);
 OMPI_DECLSPEC  int PMPI_Bsend(const void *buf, int count, MPI_Datatype datatype,
                               int dest, int tag, MPI_Comm comm);
 OMPI_DECLSPEC  int PMPI_Bsend_init(const void *buf, int count, MPI_Datatype datatype,
@@ -2340,6 +2348,8 @@ OMPI_DECLSPEC  int PMPI_Intercomm_merge(MPI_Comm intercomm, int high,
 OMPI_DECLSPEC  int PMPI_Iprobe(int source, int tag, MPI_Comm comm, int *flag,
                                MPI_Status *status);
 OMPI_DECLSPEC  int PMPI_Irecv(void *buf, int count, MPI_Datatype datatype, int source,
+                              int tag, MPI_Comm comm, MPI_Request *request);
+OMPI_DECLSPEC  int PMPI_IUrecv(void *buf, int count, MPI_Datatype datatype, int source,
                               int tag, MPI_Comm comm, MPI_Request *request);
 OMPI_DECLSPEC  int PMPI_Irsend(const void *buf, int count, MPI_Datatype datatype, int dest,
                                int tag, MPI_Comm comm, MPI_Request *request);
