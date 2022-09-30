@@ -1339,6 +1339,8 @@ OMPI_DECLSPEC  int MPI_Alloc_mem(MPI_Aint size, MPI_Info info,
                                  void *baseptr);
 OMPI_DECLSPEC  int MPI_Allreduce(const void *sendbuf, void *recvbuf, int count,
                                  MPI_Datatype datatype, MPI_Op op, MPI_Comm comm);
+OMPI_DECLSPEC  int MPI_UAllreduce(const void *sendbuf, void *recvbuf, int count,
+                                 MPI_Datatype datatype, MPI_Op op, MPI_Comm comm);
 OMPI_DECLSPEC  int MPI_Iallreduce(const void *sendbuf, void *recvbuf, int count,
                                  MPI_Datatype datatype, MPI_Op op, MPI_Comm comm, MPI_Request *request);
 OMPI_DECLSPEC  int MPI_Alltoall(const void *sendbuf, int sendcount, MPI_Datatype sendtype,
@@ -2003,6 +2005,8 @@ OMPI_DECLSPEC  int PMPI_Iallgatherv(const void *sendbuf, int sendcount, MPI_Data
 OMPI_DECLSPEC  int PMPI_Alloc_mem(MPI_Aint size, MPI_Info info,
                                   void *baseptr);
 OMPI_DECLSPEC  int PMPI_Allreduce(const void *sendbuf, void *recvbuf, int count,
+                                  MPI_Datatype datatype, MPI_Op op, MPI_Comm comm);
+OMPI_DECLSPEC  int PMPI_UAllreduce(const void *sendbuf, void *recvbuf, int count,
                                   MPI_Datatype datatype, MPI_Op op, MPI_Comm comm);
 OMPI_DECLSPEC  int PMPI_Iallreduce(const void *sendbuf, void *recvbuf, int count,
                                   MPI_Datatype datatype, MPI_Op op, MPI_Comm comm, MPI_Request *request);

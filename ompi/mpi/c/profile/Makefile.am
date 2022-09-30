@@ -51,6 +51,7 @@ nodist_libmpi_c_pmpi_la_SOURCES = \
         piallgatherv.c \
         palloc_mem.c \
         pallreduce.c \
+        puallreduce.c \
         piallreduce.c \
         palltoall.c \
         pialltoall.c \
