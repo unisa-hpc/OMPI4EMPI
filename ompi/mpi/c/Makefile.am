@@ -306,6 +306,7 @@ libmpi_c_mpi_la_SOURCES = \
         query_thread.c \
 	raccumulate.c \
         recv_init.c \
+        urecv.c \
         recv.c \
         reduce.c \
         register_datarep.c \

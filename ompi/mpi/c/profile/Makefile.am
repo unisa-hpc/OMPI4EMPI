@@ -286,6 +286,7 @@ nodist_libmpi_c_pmpi_la_SOURCES = \
         pquery_thread.c \
 	praccumulate.c \
         precv_init.c \
+        purecv.c \
         precv.c \
         preduce.c \
         pregister_datarep.c \
