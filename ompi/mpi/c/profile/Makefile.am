@@ -254,6 +254,7 @@ nodist_libmpi_c_pmpi_la_SOURCES = \
         pirsend.c \
         pis_thread_main.c \
         pisend.c \
+        piusend.c \
         pissend.c \
         plookup_name.c \
         pmessage_f2c.c \

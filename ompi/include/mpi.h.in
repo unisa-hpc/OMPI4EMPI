@@ -1674,6 +1674,8 @@ OMPI_DECLSPEC  int MPI_Irsend(const void *buf, int count, MPI_Datatype datatype,
                               int tag, MPI_Comm comm, MPI_Request *request);
 OMPI_DECLSPEC  int MPI_Isend(const void *buf, int count, MPI_Datatype datatype, int dest,
                              int tag, MPI_Comm comm, MPI_Request *request);
+OMPI_DECLSPEC  int MPI_IUsend(const void *buf, int count, MPI_Datatype datatype, int dest,
+                             int tag, MPI_Comm comm, MPI_Request *request);
 OMPI_DECLSPEC  int MPI_Issend(const void *buf, int count, MPI_Datatype datatype, int dest,
                               int tag, MPI_Comm comm, MPI_Request *request);
 OMPI_DECLSPEC  int MPI_Is_thread_main(int *flag);
@@ -2343,6 +2345,8 @@ OMPI_DECLSPEC  int PMPI_Irsend(const void *buf, int count, MPI_Datatype datatype
                                int tag, MPI_Comm comm, MPI_Request *request);
 OMPI_DECLSPEC  int PMPI_Isend(const void *buf, int count, MPI_Datatype datatype, int dest,
                               int tag, MPI_Comm comm, MPI_Request *request);
+OMPI_DECLSPEC  int PMPI_IUsend(const void *buf, int count, MPI_Datatype datatype, int dest,
+                              int tag, MPI_Comm comm, MPI_Request *request);                              
 OMPI_DECLSPEC  int PMPI_Issend(const void *buf, int count, MPI_Datatype datatype, int dest,
                                int tag, MPI_Comm comm, MPI_Request *request);
 OMPI_DECLSPEC  int PMPI_Is_thread_main(int *flag);

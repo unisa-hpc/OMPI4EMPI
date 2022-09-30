@@ -273,6 +273,7 @@ libmpi_c_mpi_la_SOURCES = \
         irecv.c \
         irsend.c \
         is_thread_main.c \
+        iusend.c \
         isend.c \
         issend.c \
         lookup_name.c \
