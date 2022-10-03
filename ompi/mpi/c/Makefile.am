@@ -131,6 +131,8 @@ libmpi_c_mpi_la_SOURCES = \
         comm_remote_size.c \
         comm_set_attr.c \
         comm_set_info.c \
+        checktype.c \
+        checkcomm.c \
         dist_graph_create.c \
         dist_graph_create_adjacent.c \
         dist_graph_neighbors.c \

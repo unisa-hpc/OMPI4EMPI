@@ -68,6 +68,8 @@ nodist_libmpi_c_pmpi_la_SOURCES = \
         pubcast.c \
         pibcast.c \
         piubcast.c \
+        pchecktype.c \
+        pcheckcomm.c \
         pbsend.c \
         pbsend_init.c \
         pbuffer_attach.c \

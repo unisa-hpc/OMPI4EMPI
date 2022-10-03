@@ -1392,6 +1392,9 @@ OMPI_DECLSPEC  int MPI_Cart_shift(MPI_Comm comm, int direction, int disp,
                                   int *rank_source, int *rank_dest);
 OMPI_DECLSPEC  int MPI_Cart_sub(MPI_Comm comm, const int remain_dims[], MPI_Comm *new_comm);
 OMPI_DECLSPEC  int MPI_Cartdim_get(MPI_Comm comm, int *ndims);
+OMPI_DECLSPEC  int MPI_Checktype(MPI_Datatype type); 
+OMPI_DECLSPEC  int MPI_Checkcomm(MPI_Comm comm); 
+
 OMPI_DECLSPEC  int MPI_Close_port(const char *port_name);
 OMPI_DECLSPEC  int MPI_Comm_accept(const char *port_name, MPI_Info info, int root,
                                    MPI_Comm comm, MPI_Comm *newcomm);
@@ -2057,6 +2060,8 @@ OMPI_DECLSPEC  int PMPI_Dist_graph_neighbors_count(MPI_Comm comm,
                                                    int *outneighbors,
                                                    int *weighted);
 OMPI_DECLSPEC  int PMPI_Barrier(MPI_Comm comm);
+OMPI_DECLSPEC  int PMPI_Checktype(MPI_Datatype type); 
+OMPI_DECLSPEC  int PMPI_Checkcomm(MPI_Comm comm); 
 OMPI_DECLSPEC  int PMPI_Ibarrier(MPI_Comm comm, MPI_Request *request);
 OMPI_DECLSPEC  int PMPI_Bcast(void *buffer, int count, MPI_Datatype datatype,
                               int root, MPI_Comm comm);

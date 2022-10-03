@@ -43,13 +43,13 @@ int MPI_URecv(void *buf, int count, MPI_Datatype type, int source,
              int tag, MPI_Comm comm, MPI_Status *status)
 {
     int rc = MPI_SUCCESS;
-
+    // MPI_Checktype( buf, count, type);
     SPC_RECORD(OMPI_SPC_RECV, 1);
 
     MEMCHECKER(
-        memchecker_datatype(type);
+        // memchecker_datatype(type);
         memchecker_call(&opal_memchecker_base_isaddressable, buf, count, type);
-        memchecker_comm(comm);
+        // memchecker_comm(comm);
     );
 
     if ( MPI_PARAM_CHECK ) {
