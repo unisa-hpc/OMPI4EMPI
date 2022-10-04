@@ -51,9 +51,9 @@ int MPI_IUsend(const void *buf, int count, MPI_Datatype type, int dest,
     SPC_RECORD(OMPI_SPC_ISEND, 1);
 
     MEMCHECKER(
-        memchecker_datatype(type);
+        // memchecker_datatype(type);
         memchecker_call(&opal_memchecker_base_isdefined, buf, count, type);
-        memchecker_comm(comm);
+        // memchecker_comm(comm);
     );
 
     if ( MPI_PARAM_CHECK ) {

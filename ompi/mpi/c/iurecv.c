@@ -46,10 +46,10 @@ int MPI_IUrecv(void *buf, int count, MPI_Datatype type, int source,
 
     SPC_RECORD(OMPI_SPC_IRECV, 1);
 
-    MEMCHECKER(
-        memchecker_datatype(type);
-        memchecker_comm(comm);
-    );
+    // MEMCHECKER(
+    //     memchecker_datatype(type);
+    //     memchecker_comm(comm);
+    // );
 
     if ( MPI_PARAM_CHECK ) {
         OMPI_ERR_INIT_FINALIZE(FUNC_NAME);

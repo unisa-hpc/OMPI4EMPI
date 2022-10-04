@@ -51,8 +51,8 @@ int MPI_UAllreduce(const void *sendbuf, void *recvbuf, int count,
     SPC_RECORD(OMPI_SPC_ALLREDUCE, 1);
 
     MEMCHECKER(
-        memchecker_datatype(datatype);
-        memchecker_comm(comm);
+        // memchecker_datatype(datatype);
+        // memchecker_comm(comm);
 
         /* check whether receive buffer is defined. */
         memchecker_call(&opal_memchecker_base_isaddressable, recvbuf, count, datatype);

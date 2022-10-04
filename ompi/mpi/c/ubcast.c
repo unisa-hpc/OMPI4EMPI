@@ -46,8 +46,8 @@ int MPI_UBcast(void *buffer, int count, MPI_Datatype datatype,
     SPC_RECORD(OMPI_SPC_BCAST, 1);
 
     MEMCHECKER(
-        memchecker_datatype(datatype);
-        memchecker_comm(comm);
+        // memchecker_datatype(datatype);
+        // memchecker_comm(comm);
         if (OMPI_COMM_IS_INTRA(comm)) {
             if (ompi_comm_rank(comm) == root) {
                 /* check whether root's send buffer is defined. */

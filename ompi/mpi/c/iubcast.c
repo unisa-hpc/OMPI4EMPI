@@ -41,9 +41,9 @@ int MPI_IUbcast(void *buffer, int count, MPI_Datatype datatype,
     SPC_RECORD(OMPI_SPC_IBCAST, 1);
 
     MEMCHECKER(
-        memchecker_datatype(datatype);
+        // memchecker_datatype(datatype);
         memchecker_call(&opal_memchecker_base_isdefined, buffer, count, datatype);
-        memchecker_comm(comm);
+        // memchecker_comm(comm);
     );
 
     if (MPI_PARAM_CHECK) {
