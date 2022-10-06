@@ -46,20 +46,19 @@ BEGIN_C_DECLS
  */
 #define OMPI_CHECK_DATATYPE_FOR_SEND( RC, DDT, COUNT )                  \
     do {                                                                \
-        /* (RC) = MPI_SUCCESS; */                                       \
-        if( NULL == (DDT) || MPI_DATATYPE_NULL == (DDT) ) (RC) = MPI_ERR_TYPE; \
-        else if( (COUNT) < 0 ) (RC) = MPI_ERR_COUNT;                    \
-        else if( !opal_datatype_is_committed(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE; \
-        else if( !opal_datatype_is_valid(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE;       \
+        if( !opal_datatype_is_valid(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE;       \
     } while (0)
 
 #define OMPI_CHECK_DATATYPE_FOR_RECV( RC, DDT, COUNT )                  \
     do {                                                                \
-        /* (RC) = MPI_SUCCESS; */                                        \
-        if( NULL == (DDT) || MPI_DATATYPE_NULL == (DDT) ) (RC) = MPI_ERR_TYPE; \
-        else if( (COUNT) < 0 ) (RC) = MPI_ERR_COUNT;                    \
-        else if( !opal_datatype_is_committed(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE;   \
-        /* XXX Fix flags else if( ompi_datatype_is_overlapped((DDT)) ) (RC) = MPI_ERR_TYPE; */ \
+        if( !opal_datatype_is_valid(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE;       \
+    } while (0)
+
+#define OMPI_CHECK_DATATYPE_COMMON( RC, DDT )                  \
+    do {                                                                \
+        /* (RC) = MPI_SUCCESS; */                                       \
+        if( NULL == (DDT) || MPI_DATATYPE_NULL == (DDT) ) (RC) = MPI_ERR_TYPE;  \
+        else if( !opal_datatype_is_committed(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE; \
         else if( !opal_datatype_is_valid(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE;       \
     } while (0)
 

@@ -75,7 +75,6 @@ int MPI_UBcast(void *buffer, int count, MPI_Datatype datatype,
       }
 
       /* Errors for all ranks */
-
       OMPI_CHECK_DATATYPE_FOR_SEND(err, datatype, count);
       OMPI_ERRHANDLER_CHECK(err, comm, err, FUNC_NAME);
       if (MPI_IN_PLACE == buffer) {

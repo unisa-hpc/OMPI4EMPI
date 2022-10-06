@@ -44,11 +44,13 @@ static const char FUNC_NAME[] = "MPI_Checktype";
 
 int MPI_Checktype(MPI_Datatype type)
 {
-    printf("***********   Hello, I'm checking type   ***********\n");
+    //printf("***********   Hello, I'm checking type   ***********\n");
     
     int rc = MPI_SUCCESS;
     MEMCHECKER(
         memchecker_datatype(type);
-        );
+    );
+
+    OMPI_CHECK_DATATYPE_COMMON(rc, type);
     return rc;
 }

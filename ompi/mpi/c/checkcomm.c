@@ -44,7 +44,7 @@ static const char FUNC_NAME[] = "MPI_Checkcomm";
 
 int MPI_Checkcomm( MPI_Comm comm)
 {
-    printf("***********   Hello, I'm checking communicator   ***********\n");
+    //printf("***********   Hello, I'm checking communicator   ***********\n");
     
     int rc = MPI_SUCCESS;
     MEMCHECKER(
