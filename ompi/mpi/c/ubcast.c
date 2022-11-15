@@ -46,8 +46,8 @@ int MPI_UBcast(void *buffer, int count, MPI_Datatype datatype,
     SPC_RECORD(OMPI_SPC_BCAST, 1);
 
     MEMCHECKER(
-        // memchecker_datatype(datatype);
-        // memchecker_comm(comm);
+        memchecker_datatype(datatype);
+        memchecker_comm(comm);
         if (OMPI_COMM_IS_INTRA(comm)) {
             if (ompi_comm_rank(comm) == root) {
                 /* check whether root's send buffer is defined. */
@@ -110,7 +110,7 @@ int MPI_UBcast(void *buffer, int count, MPI_Datatype datatype,
 
     /* Invoke the coll component to perform the back-end operation */
 
-    err = comm->c_coll->coll_bcast(buffer, count, datatype, root, comm,
-                                  comm->c_coll->coll_bcast_module);
+    // err = comm->c_coll->coll_bcast(buffer, count, datatype, root, comm,
+    //                               comm->c_coll->coll_bcast_module);
     OMPI_ERRHANDLER_RETURN(err, comm, err, FUNC_NAME);
 }

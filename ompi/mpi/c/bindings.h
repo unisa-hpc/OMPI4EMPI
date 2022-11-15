@@ -45,12 +45,20 @@ BEGIN_C_DECLS
  * responsability to do it.
  */
 #define OMPI_CHECK_DATATYPE_FOR_SEND( RC, DDT, COUNT )                  \
-    do {                                                                \
+    do {               \
+        /* (RC) = MPI_SUCCESS; */                                       \
+        if( NULL == (DDT) || MPI_DATATYPE_NULL == (DDT) ) (RC) = MPI_ERR_TYPE;  \
+        else if( !opal_datatype_is_committed(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE; \
+        else if( !opal_datatype_is_valid(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE;       \
         if( !opal_datatype_is_valid(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE;       \
     } while (0)
 
 #define OMPI_CHECK_DATATYPE_FOR_RECV( RC, DDT, COUNT )                  \
-    do {                                                                \
+    do {                 \
+        /* (RC) = MPI_SUCCESS; */                                       \
+        if( NULL == (DDT) || MPI_DATATYPE_NULL == (DDT) ) (RC) = MPI_ERR_TYPE;  \
+        else if( !opal_datatype_is_committed(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE; \
+        else if( !opal_datatype_is_valid(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE;       \
         if( !opal_datatype_is_valid(&((DDT)->super)) ) (RC) = MPI_ERR_TYPE;       \
     } while (0)
 

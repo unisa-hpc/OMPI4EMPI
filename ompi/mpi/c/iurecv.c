@@ -47,19 +47,19 @@ int MPI_IUrecv(void *buf, int count, MPI_Datatype type, int source,
     SPC_RECORD(OMPI_SPC_IRECV, 1);
 
     // MEMCHECKER(
-    //     memchecker_datatype(type);
-    //     memchecker_comm(comm);
+        // memchecker_datatype(type);
+        // memchecker_comm(comm);
     // );
 
     if ( MPI_PARAM_CHECK ) {
-        OMPI_ERR_INIT_FINALIZE(FUNC_NAME);
+        // OMPI_ERR_INIT_FINALIZE(FUNC_NAME);
         OMPI_CHECK_DATATYPE_FOR_RECV(rc, type, count);
         OMPI_CHECK_USER_BUFFER(rc, buf, type, count);
 
         if (ompi_comm_invalid(comm)) {
             return OMPI_ERRHANDLER_INVOKE(MPI_COMM_WORLD, MPI_ERR_COMM, FUNC_NAME);
-        } else if (((tag < 0) && (tag != MPI_ANY_TAG)) || (tag > mca_pml.pml_max_tag)) {
-            rc = MPI_ERR_TAG;
+        // } else if (((tag < 0) && (tag != MPI_ANY_TAG)) || (tag > mca_pml.pml_max_tag)) {
+        //     rc = MPI_ERR_TAG;
         } else if ((MPI_ANY_SOURCE != source) &&
                    (MPI_PROC_NULL != source) &&
                    ompi_comm_peer_invalid(comm, source)) {
@@ -80,6 +80,7 @@ int MPI_IUrecv(void *buf, int count, MPI_Datatype type, int source,
     MEMCHECKER (
         memchecker_call(&opal_memchecker_base_mem_noaccess, buf, count, type);
     );
+    
     rc = MCA_PML_CALL(irecv(buf,count,type,source,tag,comm,request));
     OMPI_ERRHANDLER_RETURN(rc, comm, rc, FUNC_NAME);
 }
