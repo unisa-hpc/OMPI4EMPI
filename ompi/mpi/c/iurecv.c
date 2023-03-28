@@ -55,8 +55,8 @@ int MPI_IUrecv(void *buf, int count, MPI_Datatype type, int source,
 
     if ( MPI_PARAM_CHECK ) {
         // OMPI_ERR_INIT_FINALIZE(FUNC_NAME);
-        OMPI_CHECK_DATATYPE_FOR_RECV(rc, type, count);
-        OMPI_CHECK_USER_BUFFER(rc, buf, type, count);
+        // OMPI_CHECK_DATATYPE_FOR_RECV(rc, type, count);
+        // OMPI_CHECK_USER_BUFFER(rc, buf, type, count);
 
         if (ompi_comm_invalid(comm)) {
             return OMPI_ERRHANDLER_INVOKE(MPI_COMM_WORLD, MPI_ERR_COMM, FUNC_NAME);
@@ -79,9 +79,9 @@ int MPI_IUrecv(void *buf, int count, MPI_Datatype type, int source,
 
     OPAL_CR_ENTER_LIBRARY();
 
-    MEMCHECKER (
-        memchecker_call(&opal_memchecker_base_mem_noaccess, buf, count, type);
-    );
+    // MEMCHECKER (
+    //     memchecker_call(&opal_memchecker_base_mem_noaccess, buf, count, type);
+    // );
     
     rc = MCA_PML_CALL(irecv(buf,count,type,source,tag,comm,request));
     OMPI_ERRHANDLER_RETURN(rc, comm, rc, FUNC_NAME);

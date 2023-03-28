@@ -52,20 +52,20 @@ int MPI_UAllreduce(const void *sendbuf, void *recvbuf, int count,
 
     SPC_RECORD(OMPI_SPC_ALLREDUCE, 1);
 
-    MEMCHECKER(
-        // memchecker_datatype(datatype);
-        // memchecker_comm(comm);
+    // MEMCHECKER(
+    //     memchecker_datatype(datatype);
+    //     memchecker_comm(comm);
 
-        /* check whether receive buffer is defined. */
-        memchecker_call(&opal_memchecker_base_isaddressable, recvbuf, count, datatype);
+    //     /* check whether receive buffer is defined. */
+    //     memchecker_call(&opal_memchecker_base_isaddressable, recvbuf, count, datatype);
 
-        /* check whether the actual send buffer is defined. */
-        if (MPI_IN_PLACE == sendbuf) {
-            memchecker_call(&opal_memchecker_base_isdefined, recvbuf, count, datatype);
-        } else {
-            memchecker_call(&opal_memchecker_base_isdefined, sendbuf, count, datatype);
-        }
-    );
+    //     /* check whether the actual send buffer is defined. */
+    //     if (MPI_IN_PLACE == sendbuf) {
+    //         memchecker_call(&opal_memchecker_base_isdefined, recvbuf, count, datatype);
+    //     } else {
+    //         memchecker_call(&opal_memchecker_base_isdefined, sendbuf, count, datatype);
+    //     }
+    // );
 
     if (MPI_PARAM_CHECK) {
         char *msg;
@@ -94,7 +94,7 @@ int MPI_UAllreduce(const void *sendbuf, void *recvbuf, int count,
 	    return OMPI_ERRHANDLER_INVOKE(MPI_COMM_WORLD, MPI_ERR_BUFFER,
                                           FUNC_NAME);
         } else {
-            OMPI_CHECK_DATATYPE_FOR_SEND(err, datatype, count);
+            // OMPI_CHECK_DATATYPE_FOR_SEND(err, datatype, count);
         }
         OMPI_ERRHANDLER_CHECK(err, comm, err, FUNC_NAME);
     }

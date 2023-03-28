@@ -47,26 +47,26 @@ int MPI_UBcast(void *buffer, int count, MPI_Datatype datatype,
 
     SPC_RECORD(OMPI_SPC_BCAST, 1);
 
-    MEMCHECKER(
-        memchecker_datatype(datatype);
-        memchecker_comm(comm);
-        if (OMPI_COMM_IS_INTRA(comm)) {
-            if (ompi_comm_rank(comm) == root) {
-                /* check whether root's send buffer is defined. */
-                memchecker_call(&opal_memchecker_base_isdefined, buffer, count, datatype);
-            }
-            /* check whether receive buffer is addressable. */
-            memchecker_call(&opal_memchecker_base_isaddressable, buffer, count, datatype);
-        } else {
-            if (MPI_ROOT == root) {
-                /* check whether root's send buffer is defined. */
-                memchecker_call(&opal_memchecker_base_isdefined, buffer, count, datatype);
-            } else if (MPI_PROC_NULL != root) {
-                /* check whether receive buffer is addressable. */
-                memchecker_call(&opal_memchecker_base_isaddressable, buffer, count, datatype);
-            }
-        }
-    );
+    // MEMCHECKER(
+    //     memchecker_datatype(datatype);
+    //     memchecker_comm(comm);
+    //     if (OMPI_COMM_IS_INTRA(comm)) {
+    //         if (ompi_comm_rank(comm) == root) {
+    //             /* check whether root's send buffer is defined. */
+    //             memchecker_call(&opal_memchecker_base_isdefined, buffer, count, datatype);
+    //         }
+    //         /* check whether receive buffer is addressable. */
+    //         memchecker_call(&opal_memchecker_base_isaddressable, buffer, count, datatype);
+    //     } else {
+    //         if (MPI_ROOT == root) {
+    //             /* check whether root's send buffer is defined. */
+    //             memchecker_call(&opal_memchecker_base_isdefined, buffer, count, datatype);
+    //         } else if (MPI_PROC_NULL != root) {
+    //             /* check whether receive buffer is addressable. */
+    //             memchecker_call(&opal_memchecker_base_isaddressable, buffer, count, datatype);
+    //         }
+    //     }
+    // );
 
     if (MPI_PARAM_CHECK) {
       err = MPI_SUCCESS;
@@ -77,7 +77,7 @@ int MPI_UBcast(void *buffer, int count, MPI_Datatype datatype,
       }
 
       /* Errors for all ranks */
-      OMPI_CHECK_DATATYPE_FOR_SEND(err, datatype, count);
+    //   OMPI_CHECK_DATATYPE_FOR_SEND(err, datatype, count);
       OMPI_ERRHANDLER_CHECK(err, comm, err, FUNC_NAME);
       if (MPI_IN_PLACE == buffer) {
           return OMPI_ERRHANDLER_INVOKE(comm, MPI_ERR_ARG, FUNC_NAME);
@@ -112,7 +112,7 @@ int MPI_UBcast(void *buffer, int count, MPI_Datatype datatype,
 
     /* Invoke the coll component to perform the back-end operation */
 
-    // err = comm->c_coll->coll_bcast(buffer, count, datatype, root, comm,
-    //                               comm->c_coll->coll_bcast_module);
+    err = comm->c_coll->coll_bcast(buffer, count, datatype, root, comm,
+                                  comm->c_coll->coll_bcast_module);
     OMPI_ERRHANDLER_RETURN(err, comm, err, FUNC_NAME);
 }

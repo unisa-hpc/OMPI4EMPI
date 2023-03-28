@@ -68,6 +68,7 @@ libmpi_c_mpi_la_SOURCES = \
         allgather.c \
         iallgather.c \
         allgatherv.c \
+        uallgather.c \
         iallgatherv.c \
         alloc_mem.c \
         uallreduce.c \

@@ -52,11 +52,11 @@ int MPI_USend(const void *buf, int count, MPI_Datatype type, int dest,
 
     SPC_RECORD(OMPI_SPC_SEND, 1);
 
-     MEMCHECKER(
-         //memchecker_datatype(type);
-         memchecker_call(&opal_memchecker_base_isdefined, buf, count, type);
-         //memchecker_comm(comm);
-     );
+    //  MEMCHECKER(
+    //      memchecker_datatype(type);
+    //      memchecker_call(&opal_memchecker_base_isdefined, buf, count, type);
+    //      memchecker_comm(comm);
+    //  );
 
     if ( MPI_PARAM_CHECK ) {
         //  OMPI_ERR_INIT_FINALIZE(FUNC_NAME);
@@ -69,10 +69,11 @@ int MPI_USend(const void *buf, int count, MPI_Datatype type, int dest,
         } else if (ompi_comm_peer_invalid(comm, dest) &&
                    (MPI_PROC_NULL != dest)) {
             rc = MPI_ERR_RANK;
-        } else {
-            OMPI_CHECK_DATATYPE_FOR_SEND(rc, type, count);
-            OMPI_CHECK_USER_BUFFER(rc, buf, type, count);
         }
+        // } else {
+        //     OMPI_CHECK_DATATYPE_FOR_SEND(rc, type, count);
+        //     OMPI_CHECK_USER_BUFFER(rc, buf, type, count);
+        // }
         OMPI_ERRHANDLER_CHECK(rc, comm, rc, FUNC_NAME);
     }
 

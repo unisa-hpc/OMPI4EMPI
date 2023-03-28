@@ -46,6 +46,7 @@ nodist_libmpi_c_pmpi_la_SOURCES = \
         padd_error_code.c \
         padd_error_string.c \
         pallgather.c \
+        puallgather.c \
         piallgather.c \
         pallgatherv.c \
         piallgatherv.c \
